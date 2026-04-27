@@ -1,4 +1,51 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [demoInput, setDemoInput] = useState("");
+  const [demoResponse, setDemoResponse] = useState(
+    "Ask the system about AI automation, customer response, CRM workflows, or business use cases."
+  );
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function runDemo() {
+    const message = demoInput.trim();
+
+    if (!message) {
+      setDemoResponse(
+        "Enter a business problem first. Example: We are missing customer messages and need better follow-up."
+      );
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      setDemoResponse("Analyzing the business problem and building an AI systems recommendation...");
+
+      const response = await fetch("/api/demo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+      });
+
+      if (!response.ok) {
+        throw new Error("The AI system could not complete the request.");
+      }
+
+      const data = await response.json();
+      setDemoResponse(data.output);
+    } catch (error) {
+      setDemoResponse(
+        "Something went wrong while connecting to the AI system. Check the API route, OpenAI key, and Vercel environment variable."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <main className="min-h-screen overflow-hidden bg-[#05070d] text-white">
       <div className="pointer-events-none fixed inset-0 -z-10">
@@ -304,7 +351,70 @@ export default function Home() {
     ))}
   </div>
 </section>
-          <section id="projects" className="mx-auto max-w-7xl px-6 py-24">
+          <section id="demo" className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid gap-10 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-black/20 backdrop-blur lg:grid-cols-2 md:p-12">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+              AI Systems Assistant
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+              Ask about AI tools, automation, workflows, and business use cases.
+            </h2>
+
+            <p className="mt-6 text-white/70">
+              This assistant is designed to answer questions about AI systems,
+              CRM automation, customer response workflows, implementation
+              strategy, risks, limitations, and how organizations can apply AI.
+            </p>
+
+            <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-5">
+              <p className="text-sm font-semibold text-cyan-300">
+                Try asking
+              </p>
+              <div className="mt-4 space-y-3 text-sm text-white/70">
+                <p>• What is the difference between ChatGPT, Claude, Gemini, and Copilot?</p>
+                <p>• How can AI help a business respond to customers faster?</p>
+                <p>• What AI system should a company use for CRM follow-up?</p>
+                <p>• What are the risks of using AI in business operations?</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-black/40 p-6">
+            <p className="text-sm font-semibold text-cyan-300">
+              Talk to the Assistant
+            </p>
+
+            <textarea
+              value={demoInput}
+              onChange={(event) => setDemoInput(event.target.value)}
+              placeholder="Ask anything about AI systems, tools, workflows, automation, CRM, or business use cases."
+              className="mt-4 min-h-32 w-full rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm text-white outline-none placeholder:text-white/40 focus:border-cyan-300/50"
+            />
+
+            <button
+              type="button"
+              onClick={runDemo}
+              disabled={isLoading}
+              className="mt-4 w-full rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isLoading ? "Thinking..." : "Ask AI Systems Assistant"}
+            </button>
+
+            <div className="mt-6 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-5">
+              <p className="text-sm font-semibold text-cyan-300">
+                Assistant Response
+              </p>
+              <p className="mt-3 whitespace-pre-line text-sm leading-6 text-white/80">
+                {demoResponse}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
             Featured Systems
@@ -472,7 +582,12 @@ export default function Home() {
           <p>© 2026 AI Systems Lab. Built by Anthony Spearman.</p>
 
           <div className="flex flex-wrap gap-4">
-          
+            <a
+              href="mailto:iAnthonySpearman@gmail.com"
+              className="hover:text-cyan-300"
+            >
+              Email
+            </a>
             <a
               href="https://www.linkedin.com/in/anthony-spearman-5466a61b6/"
               target="_blank"
@@ -482,7 +597,7 @@ export default function Home() {
               LinkedIn
             </a>
             <a
-              href="https://github.com/TreveccaStudentpy/ai-systems-lab"
+              href="https://github.com/YOUR_USERNAME/ai-systems-lab"
               target="_blank"
               rel="noreferrer"
               className="hover:text-cyan-300"
