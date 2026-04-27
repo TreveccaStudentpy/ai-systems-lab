@@ -1,5 +1,3 @@
-import Navbar from "../src/components/Navbar";
-
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#05070d] text-white">
@@ -10,7 +8,45 @@ export default function Home() {
       </div>
 
       <section className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-8">
-        <Navbar />
+        <nav className="flex items-center justify-between py-6">
+          <a href="/" className="text-xl font-bold tracking-tight">
+            AI Systems Lab
+          </a>
+
+          <div className="hidden items-center gap-8 text-sm text-white/70 md:flex">
+            <a href="#systems" className="hover:text-white">
+              Systems
+            </a>
+            <a href="#framework" className="hover:text-white">
+              Framework
+            </a>
+            <a href="#ai-tools" className="hover:text-white">
+              Tools
+            </a>
+            <a href="#contact" className="hover:text-white">
+              Contact
+            </a>
+          </div>
+
+          <div className="hidden items-center gap-3 md:flex">
+            <a
+              href="https://www.linkedin.com/in/anthony-spearman-5466a61b6/"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10 hover:text-white"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/YOUR_USERNAME/ai-systems-lab"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black transition hover:bg-cyan-200"
+            >
+              GitHub
+            </a>
+          </div>
+        </nav>
 
         <div className="grid flex-1 items-center gap-12 py-20 lg:grid-cols-2">
           <div>
@@ -431,6 +467,31 @@ export default function Home() {
           ))}
         </div>
       </section>
+          <footer className="mx-auto max-w-7xl px-6 pb-10">
+        <div className="flex flex-col gap-6 border-t border-white/10 pt-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 AI Systems Lab. Built by Anthony Spearman.</p>
+
+          <div className="flex flex-wrap gap-4">
+          
+            <a
+              href="https://www.linkedin.com/in/anthony-spearman-5466a61b6/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-cyan-300"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/TreveccaStudentpy/ai-systems-lab"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-cyan-300"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
