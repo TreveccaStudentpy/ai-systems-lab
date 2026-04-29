@@ -10,21 +10,21 @@ type Message = {
 export default function Home() {
   const [demoInput, setDemoInput] = useState("");
   const [demoResponse, setDemoResponse] = useState(
-    "Ask the system about AI automation, customer response, CRM workflows, or business use cases."
+    "Ask the system about missed leads, slow response times, CRM workflows, automation, or AI use cases."
   );
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
       content:
-        "Ask me about a business problem, and I’ll break it down into the problem, system design, AI workflow, and next steps.",
+        "Describe a business problem, and I’ll break it down into the problem, AI workflow, CRM logic, automation path, and recommended next steps.",
     },
   ]);
 
   const quickQuestions = [
-    "How would AI automate customer follow-up for a dealership?",
+    "How would AI reduce missed customer messages?",
+    "How would AI improve follow-up for sales leads?",
     "How does an API connect AI to a CRM?",
-    "What AI system would reduce missed customer messages?",
     "How would you design an AI assistant for a small business?",
   ];
 
@@ -97,14 +97,17 @@ export default function Home() {
           </a>
 
           <div className="hidden items-center gap-8 text-sm text-white/70 md:flex">
-            <a href="#framework" className="hover:text-white">
-              Framework
+            <a href="#value" className="hover:text-white">
+              Value
             </a>
             <a href="#case-studies" className="hover:text-white">
               Case Studies
             </a>
+            <a href="#framework" className="hover:text-white">
+              Framework
+            </a>
             <a href="#demo" className="hover:text-white">
-              Assistant
+              Demo
             </a>
             <a href="#contact" className="hover:text-white">
               Contact
@@ -134,18 +137,20 @@ export default function Home() {
         <div className="grid flex-1 items-center gap-12 py-20 lg:grid-cols-2">
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-              AI Systems • Automation • Business Workflows
+              AI Solutions • Workflow Automation • Business Systems
             </p>
 
             <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
-              I design AI systems that turn business problems into clear next steps.
+              I design AI systems that help businesses capture leads, automate
+              follow-ups, and increase conversions.
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-              AI Systems Lab is a live portfolio project built to demonstrate how
-              AI, APIs, automation, CRM logic, and workflow design can help
-              organizations respond faster, reduce manual work, and make better
-              decisions.
+              I focus on turning real business problems into intelligent
+              workflows using AI, CRM logic, APIs, automation, and human
+              handoff. This portfolio demonstrates how I analyze problems,
+              design AI-enabled systems, and connect technology to measurable
+              business outcomes.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -153,20 +158,20 @@ export default function Home() {
                 href="#demo"
                 className="rounded-full bg-white px-6 py-3 text-center font-semibold text-black transition hover:bg-cyan-200"
               >
-                Try the AI Assistant
+                Try the AI Systems Demo
               </a>
 
               <a
                 href="#case-studies"
                 className="rounded-full border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
               >
-                View Case Studies
+                View Business Use Cases
               </a>
             </div>
 
             <div className="mt-10 grid gap-3 text-sm text-white/70 sm:grid-cols-3">
               {[
-                "AI Systems Analyst",
+                "AI Solutions Analyst",
                 "AI Automation Specialist",
                 "Technical Product Analyst",
               ].map((role) => (
@@ -182,24 +187,27 @@ export default function Home() {
 
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-cyan-950/40 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30">
             <div className="rounded-[1.5rem] bg-black/40 p-6 ring-1 ring-white/10">
-              <p className="text-sm text-cyan-300">System Blueprint</p>
+              <p className="text-sm text-cyan-300">Business System Blueprint</p>
 
               <h2 className="mt-3 text-2xl font-bold">
-                The value is not just the AI tool. The value is the system around it.
+                The value is not just the AI tool. The value is the system
+                around it.
               </h2>
 
               <p className="mt-4 text-white/60">
-                A business problem becomes useful when it is mapped into a flow:
-                user input, data capture, AI reasoning, automation, CRM updates,
-                and human handoff when needed.
+                A profitable AI use case starts with a business gap: missed
+                leads, slow response times, repetitive work, scattered customer
+                data, or poor follow-up. The solution is a clear workflow that
+                captures data, uses AI intelligently, automates action, and
+                routes complex issues to people.
               </p>
 
               <div className="mt-8 grid gap-4">
                 {[
                   "Business Problem → AI Use Case",
-                  "Website Input → API Route → OpenAI Response",
-                  "AI Output → CRM Logic → Follow-Up Workflow",
-                  "System Feedback → Better Decisions",
+                  "Customer Input → API Route → AI Response",
+                  "AI Output → CRM Record → Follow-Up Workflow",
+                  "Human Handoff → Quality Control → Better Outcomes",
                 ].map((item) => (
                   <div
                     key={item}
@@ -214,13 +222,42 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="value" className="mx-auto max-w-7xl px-6 py-10">
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              title: "What I Solve",
+              desc: "Missed leads, slow customer response, weak follow-up, repetitive questions, and disconnected workflows.",
+            },
+            {
+              title: "How I Think",
+              desc: "I map the full system: input, data capture, AI reasoning, CRM memory, automation, human handoff, and feedback.",
+            },
+            {
+              title: "Business Outcome",
+              desc: "Faster response times, better lead engagement, fewer lost opportunities, and clearer next steps for teams.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-white/[0.07]"
+            >
+              <h3 className="text-xl font-bold">{item.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-white/65">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="proof" className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid gap-4 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur md:grid-cols-4">
           {[
-            "Live Vercel Deployment",
-            "Next.js App Router",
+            "Live Next.js Portfolio",
             "OpenAI API Integration",
             "Business-Focused AI Demo",
+            "Workflow + CRM Logic",
           ].map((item) => (
             <div
               key={item}
@@ -232,20 +269,98 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="framework" className="mx-auto max-w-7xl px-6 py-24">
+      <section id="case-studies" className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-            AI Decision Framework
+            Business Case Studies
           </p>
 
           <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-            My process: understand the system before choosing the AI.
+            AI systems designed around real business problems.
           </h2>
 
           <p className="mt-6 text-white/70">
-            This framework shows how I evaluate a business problem, identify the
-            friction, choose the right AI system, and connect the solution to a
-            measurable outcome.
+            These case studies show how I think through the problem, workflow,
+            AI layer, automation path, and business impact.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              title: "Missed Customer Messages",
+              problem:
+                "Businesses lose leads when customer messages are answered too late or not answered at all.",
+              system:
+                "AI assistant responds instantly, captures lead details, answers common questions, and escalates complex issues to a human.",
+              workflow:
+                "Message → AI Response → Lead Capture → CRM Update → Human Handoff",
+              outcome:
+                "Improves response coverage, reduces missed opportunities, and increases trust with prospects.",
+            },
+            {
+              title: "Weak Follow-Up Process",
+              problem:
+                "Leads show interest, but teams forget to follow up or do not know when to re-engage.",
+              system:
+                "CRM workflow stores lead status, triggers timed follow-ups, and uses AI-generated messages based on customer interest.",
+              workflow:
+                "Lead Captured → CRM Tag → Follow-Up Sequence → Booking Link → Pipeline Tracking",
+              outcome:
+                "Creates consistent engagement and turns more conversations into booked appointments.",
+            },
+            {
+              title: "Overloaded Teams",
+              problem:
+                "Employees spend too much time answering repeated questions, searching for information, and drafting responses.",
+              system:
+                "Internal AI assistant helps summarize, draft, research, route tasks, and support team decision-making.",
+              workflow:
+                "Team Request → AI Assistant → Knowledge Support → Draft/Summary → Human Review",
+              outcome:
+                "Reduces manual workload and helps teams move faster without removing human judgment.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-white/[0.07]"
+            >
+              <h3 className="text-xl font-bold">{item.title}</h3>
+
+              <p className="mt-4 text-sm leading-6 text-red-300">
+                <span className="font-bold">Problem:</span> {item.problem}
+              </p>
+
+              <p className="mt-4 text-sm leading-6 text-cyan-300">
+                <span className="font-bold">System:</span> {item.system}
+              </p>
+
+              <p className="mt-4 text-sm leading-6 text-yellow-200">
+                <span className="font-bold">Workflow:</span> {item.workflow}
+              </p>
+
+              <p className="mt-5 text-sm leading-6 text-green-400">
+                <span className="font-bold">Outcome:</span> {item.outcome}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="framework" className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mb-12 max-w-4xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            My AI Solution Framework
+          </p>
+
+          <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+            I start with the business outcome, then design the system.
+          </h2>
+
+          <p className="mt-6 text-white/70">
+            A strong AI solution is not just about using a model. It requires a
+            clear problem, clean workflow, useful data, guardrails, automation,
+            and measurable results.
           </p>
         </div>
 
@@ -253,23 +368,23 @@ export default function Home() {
           {[
             {
               step: "01",
-              title: "Gather the Signal",
-              desc: "Understand the real business issue: missed leads, slow responses, manual work, poor visibility, or scattered data.",
+              title: "Identify the Gap",
+              desc: "Find where the business loses time, revenue, visibility, or customer engagement.",
             },
             {
               step: "02",
               title: "Map the Workflow",
-              desc: "Break the system into steps: who sends information, where it goes, what gets stored, and where decisions happen.",
+              desc: "Break the process into inputs, decisions, data storage, actions, and escalation points.",
             },
             {
               step: "03",
-              title: "Match the AI Layer",
-              desc: "Choose the right system: LLM, automation, CRM integration, agent workflow, analytics layer, or human handoff.",
+              title: "Select the AI Layer",
+              desc: "Choose whether the problem needs reactive automation, deliberative AI, autonomous agents, CRM logic, or human handoff.",
             },
             {
               step: "04",
-              title: "Define Next Steps",
-              desc: "Recommend what should be built, why it matters, how to test it, and what success should look like.",
+              title: "Measure the Result",
+              desc: "Define success through response rate, booked meetings, conversion rate, workload reduction, or customer satisfaction.",
             },
           ].map((item) => (
             <div
@@ -286,138 +401,45 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="case-studies" className="mx-auto max-w-7xl px-6 py-24">
+      <section id="systems" className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-            AI System Case Studies
+            AI System Layers
           </p>
 
           <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-            How I analyze problems and design AI systems.
+            Matching the right AI layer to the right business problem.
           </h2>
 
           <p className="mt-6 text-white/70">
-            These examples show how business problems are broken down, mapped to
-            AI systems, and turned into practical workflows.
+            Different AI systems serve different purposes. The key is knowing
+            when to use each layer and how to connect it to a real business
+            workflow.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
-              title: "Missed Customer Messages",
-              problem:
-                "Businesses receive customer messages but respond too late or not at all.",
-              analysis:
-                "Slow response time creates lost leads, lower trust, and missed revenue opportunities.",
-              solution:
-                "AI assistant handles incoming questions, captures lead details, and routes complex issues to a human.",
-              outcome: "100% response coverage and faster lead conversion",
+              title: "Reactive AI",
+              subtitle: "Fast Answers",
+              desc: "Handles simple, repeated questions such as pricing, hours, location, policies, or FAQs.",
+              best: "High-volume basic questions",
+              limit: "Does not deeply personalize or reason through complex needs",
             },
             {
-              title: "No Follow-Up System",
-              problem:
-                "Leads are captured but follow-up depends on memory, manual effort, or scattered notes.",
-              analysis:
-                "Without automation, customers fall through the cracks and teams lose visibility.",
-              solution:
-                "CRM workflow with automated reminders, AI-generated follow-up messages, and pipeline tracking.",
-              outcome: "Consistent engagement and fewer lost opportunities",
+              title: "Deliberative AI",
+              subtitle: "Guided Decisions",
+              desc: "Understands context, asks clarifying questions, recommends next steps, and adapts to the customer’s response.",
+              best: "Sales conversations, product fit, lead qualification, and support guidance",
+              limit: "Needs controlled knowledge, guardrails, and human review for sensitive issues",
             },
             {
-              title: "Overloaded Teams",
-              problem:
-                "Teams spend too much time answering repetitive questions and searching for information.",
-              analysis:
-                "Repetitive work slows down decisions and pulls people away from higher-value tasks.",
-              solution:
-                "Internal AI assistant for summaries, research, drafting, workflow support, and task routing.",
-              outcome: "Reduced workload and faster team output",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-white/[0.07]"
-            >
-              <h3 className="text-xl font-bold">{item.title}</h3>
-
-              <p className="mt-4 text-sm text-red-400">
-                Problem: {item.problem}
-              </p>
-
-              <p className="mt-3 text-sm text-yellow-300">
-                Analysis: {item.analysis}
-              </p>
-
-              <p className="mt-3 text-sm text-cyan-300">
-                Solution: {item.solution}
-              </p>
-
-              <p className="mt-4 text-sm text-green-400">
-                → Outcome: {item.outcome}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="systems" className="mx-auto max-w-7xl px-6 py-24">
-        <h2 className="text-3xl font-bold md:text-5xl">
-          AI Systems & Their Roles
-        </h2>
-
-        <p className="mt-6 max-w-3xl text-white/70">
-          Not all AI is the same. Each system has a specific function, strength,
-          and limitation. Understanding this is what separates automation from
-          real business intelligence.
-        </p>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            {
-              title: "LLMs",
-              subtitle: "Language Models",
-              desc: "ChatGPT, Claude, Gemini, and similar models used for conversation, reasoning, writing, and understanding human intent.",
-              best: "Customer support, chat systems, research, writing, and knowledge assistants",
-              limit:
-                "Can hallucinate and may not know real-time information unless connected to trusted data",
-            },
-            {
-              title: "Computer Vision",
-              subtitle: "Image & Video AI",
-              desc: "AI that interprets images, video, screenshots, documents, objects, faces, and visual patterns.",
-              best: "Security, healthcare imaging, quality control, product scanning, and visual search",
-              limit:
-                "Requires strong image quality, training data, and careful privacy controls",
-            },
-            {
-              title: "Automation Systems",
-              subtitle: "Workflow AI",
-              desc: "AI connected to tools, CRMs, forms, calendars, email, websites, and business processes.",
-              best: "Lead capture, follow-ups, CRM updates, scheduling, support routing, and operations",
-              limit: "Only works well when the workflow is designed clearly",
-            },
-            {
-              title: "AI Agents",
-              subtitle: "Task-Based Systems",
-              desc: "AI systems that can plan, choose tools, complete multi-step tasks, and act across platforms.",
-              best: "Research workflows, sales operations, project support, and internal business assistants",
-              limit: "Needs guardrails, permissions, and human oversight",
-            },
-            {
-              title: "Predictive AI",
-              subtitle: "Forecasting Systems",
-              desc: "AI that studies patterns in data to predict outcomes, risks, trends, and future behavior.",
-              best: "Sales forecasting, fraud detection, demand planning, and risk analysis",
-              limit: "Predictions depend on the quality and honesty of the data",
-            },
-            {
-              title: "Generative AI",
-              subtitle: "Content Creation",
-              desc: "AI that creates text, images, video, audio, code, designs, and marketing materials.",
-              best: "Content creation, branding, prototypes, design support, and rapid idea development",
-              limit:
-                "Still needs human judgment, taste, review, and brand alignment",
+              title: "Autonomous AI",
+              subtitle: "Workflow Execution",
+              desc: "Completes multi-step tasks such as follow-ups, booking reminders, CRM updates, routing, and workflow triggers.",
+              best: "Operations, lead nurture, scheduling, and repeatable business processes",
+              limit: "Requires clear permissions, rules, monitoring, and escalation paths",
             },
           ].map((item) => (
             <div
@@ -441,69 +463,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="use-cases" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mb-12 max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-            Business Use Cases
-          </p>
-
-          <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-            Where AI actually drives results.
-          </h2>
-
-          <p className="mt-6 text-white/70">
-            Real value comes from matching the right AI system to a real
-            operational problem.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              title: "Customer Response Automation",
-              desc: "AI answers incoming messages instantly, captures lead data, and routes complex questions to a human.",
-              result: "Faster response time and increased conversions",
-            },
-            {
-              title: "CRM + Follow-Up Systems",
-              desc: "Every customer interaction is stored and tracked with automated follow-ups and reminders.",
-              result: "No lost leads and consistent engagement",
-            },
-            {
-              title: "Internal AI Assistants",
-              desc: "AI helps teams research, write, summarize, and complete repetitive tasks across the business.",
-              result: "Reduced workload and increased productivity",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-white/[0.07] hover:shadow-cyan-500/10"
-            >
-              <h3 className="text-xl font-bold">{item.title}</h3>
-              <p className="mt-4 text-white/60">{item.desc}</p>
-              <p className="mt-6 text-sm text-green-400">
-                → Outcome: {item.result}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="demo" className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-10 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-black/20 backdrop-blur lg:grid-cols-2 md:p-12">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-              AI Systems Assistant
+              Live AI Systems Demo
             </p>
 
             <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-              Ask how I would solve a business workflow problem with AI.
+              Test how I think through AI workflow problems.
             </h2>
 
             <p className="mt-6 text-white/70">
-              This assistant demonstrates how AI can analyze a business issue,
-              explain the system design, identify implementation steps, and show
-              where automation or CRM logic could fit.
+              This assistant demonstrates how I analyze a business issue,
+              explain the system design, identify where automation fits, and
+              recommend practical next steps.
             </p>
 
             <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-5">
@@ -529,7 +503,7 @@ export default function Home() {
           <div className="rounded-3xl border border-white/10 bg-black/40 p-6">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold text-cyan-300">
-                Live AI Demo
+                AI Systems Assistant
               </p>
               <span className="rounded-full border border-green-400/20 bg-green-400/10 px-3 py-1 text-xs font-semibold text-green-300">
                 API Connected
@@ -594,11 +568,12 @@ export default function Home() {
             Featured Systems
           </p>
           <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-            Demonstrations that map AI to real workflows.
+            Demonstrations that connect AI to measurable workflows.
           </h2>
           <p className="mt-6 text-white/70">
-            Each build shows the problem, the AI system used, and the outcome it
-            is designed to create.
+            Each system is designed around the same principle: find the business
+            gap, map the workflow, choose the AI layer, automate the next step,
+            and measure the outcome.
           </p>
         </div>
 
@@ -606,18 +581,18 @@ export default function Home() {
           {[
             {
               title: "AI Customer Response Engine",
-              desc: "Incoming messages → LLM responses → CRM capture → human handoff when needed.",
-              outcome: "100% response coverage, faster conversion",
+              desc: "Incoming messages are answered quickly, lead details are captured, and complex questions are routed to a person.",
+              outcome: "Improves response speed and reduces missed customer opportunities",
             },
             {
               title: "Lead Capture + Follow-Up System",
-              desc: "Forms + website → automation → scheduled follow-ups → pipeline tracking.",
-              outcome: "No lost leads, consistent engagement",
+              desc: "Website forms, social messages, or inbound leads connect to CRM logic and timed follow-up sequences.",
+              outcome: "Creates consistent engagement and better appointment flow",
             },
             {
-              title: "Internal AI Assistant",
-              desc: "Team queries → knowledge base + LLM → summaries, drafts, task support.",
-              outcome: "Reduced workload, faster decisions",
+              title: "Internal AI Workflow Assistant",
+              desc: "Teams use AI to summarize, draft, research, classify requests, and reduce repetitive administrative work.",
+              outcome: "Improves productivity and helps teams make faster decisions",
             },
           ].map((item) => (
             <div
@@ -634,51 +609,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ai-tools" className="mx-auto max-w-7xl px-6 py-24">
+      <section id="tools" className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-            AI Tools Compared
+            Tools & Concepts
           </p>
           <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-            Choosing the right tool for the job.
+            The tools matter, but the workflow matters more.
           </h2>
           <p className="mt-6 text-white/70">
-            Each AI tool has strengths. The key is knowing when to use each one,
-            what it connects to, and what business problem it actually solves.
+            I focus on how tools connect: AI models for reasoning, APIs for
+            communication, CRM systems for memory, automation platforms for
+            action, and analytics for improvement.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
             {
-              name: "ChatGPT",
-              strength: "Best overall reasoning and versatility",
-              use: "General AI tasks, automation, writing, system design",
+              name: "AI Models",
+              use: "Understand messages, generate responses, summarize, recommend, and reason through business needs.",
             },
             {
-              name: "Claude",
-              strength: "Strong structured thinking and long context",
-              use: "Deep analysis, documents, business logic",
+              name: "APIs",
+              use: "Connect websites, apps, CRMs, AI services, forms, calendars, and messaging systems.",
             },
             {
-              name: "Gemini",
-              strength: "Google ecosystem + multimodal",
-              use: "Search, integrations, workspace productivity",
+              name: "CRM Systems",
+              use: "Store lead information, track customer status, manage follow-ups, and support pipeline visibility.",
             },
             {
-              name: "Copilot",
-              strength: "Code + Microsoft integration",
-              use: "Development, enterprise workflows",
-            },
-            {
-              name: "Perplexity",
-              strength: "Real-time information + citations",
-              use: "Research, fact-checking, current events",
-            },
-            {
-              name: "Midjourney / DALL·E",
-              strength: "Visual generation",
-              use: "Design, branding, creative assets",
+              name: "Automation",
+              use: "Trigger actions such as reminders, follow-ups, routing, notifications, and workflow updates.",
             },
           ].map((tool) => (
             <div
@@ -686,8 +648,9 @@ export default function Home() {
               className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-cyan-300/40 hover:bg-white/[0.07]"
             >
               <h3 className="text-xl font-bold">{tool.name}</h3>
-              <p className="mt-4 text-white/60">{tool.strength}</p>
-              <p className="mt-4 text-sm text-green-400">→ Use: {tool.use}</p>
+              <p className="mt-4 text-sm leading-6 text-white/60">
+                {tool.use}
+              </p>
             </div>
           ))}
         </div>
@@ -702,7 +665,8 @@ export default function Home() {
             Let’s talk AI systems, automation, and business workflows.
           </h2>
           <p className="mt-6 max-w-3xl text-white/70">
-            Send a message below or reach me directly at
+            I’m focused on AI Solutions, workflow automation, CRM-connected
+            systems, and business process improvement. Reach me directly at
             <a
               href="mailto:iAnthonySpearman@gmail.com"
               className="ml-1 font-semibold text-cyan-300 hover:text-cyan-200"
